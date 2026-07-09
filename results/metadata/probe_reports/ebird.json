@@ -1,0 +1,5 @@
+{
+  "source_id": "ebird",
+  "status": "skip",
+  "reason": "eBird API requires EBIRD_API_KEY; Basic Dataset also requires request/approval."
+}

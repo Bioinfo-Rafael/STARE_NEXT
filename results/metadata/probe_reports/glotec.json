@@ -1,0 +1,6 @@
+{
+  "source_id": "glotec",
+  "display_name": "NOAA GloTEC / TEC anomaly",
+  "status": "skip",
+  "reason": "GloTEC products are typically NetCDF/space-weather grids; add a stable product URL and netCDF parser before automated fetch. Probe report records this as a planned adapter instead of guessing a raw endpoint."
+}

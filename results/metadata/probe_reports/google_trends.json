@@ -1,0 +1,19 @@
+{
+  "source_id": "google_trends",
+  "status": "skip",
+  "reason": "pytrends is unavailable or blocked: ModuleNotFoundError(\"No module named 'pytrends'\")",
+  "terms": [
+    "地震雲",
+    "耳鳴り",
+    "ペット おかしい",
+    "井戸水",
+    "電波障害",
+    "地鳴り",
+    "ナマズ",
+    "防災グッズ",
+    "南海トラフ",
+    "地震 予兆",
+    "揺れた",
+    "地震速報"
+  ]
+}

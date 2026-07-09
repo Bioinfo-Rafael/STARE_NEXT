@@ -1,0 +1,6 @@
+{
+  "source_id": "movebank",
+  "display_name": "Movebank",
+  "status": "skip",
+  "reason": "Movebank generally requires account/API credentials or per-study permission; public-only unauthenticated endpoint was not configured."
+}

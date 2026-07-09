@@ -1,0 +1,5 @@
+{
+  "source_id": "firms",
+  "status": "skip",
+  "reason": "NASA FIRMS area CSV API requires NASA_FIRMS_MAP_KEY."
+}

@@ -1,0 +1,34 @@
+region_japan:
+  min_lat: 20
+  max_lat: 46
+  min_lon: 122
+  max_lon: 154
+sources:
+  - id: google_trends
+    rank: S
+  - id: wikimedia
+    rank: S
+  - id: gdelt
+    rank: S
+  - id: glotec
+    rank: S
+  - id: kp_dst
+    rank: S
+  - id: aist_well
+    rank: S
+  - id: movebank
+    rank: A
+  - id: ebird
+    rank: A
+  - id: inaturalist
+    rank: A
+  - id: gbif
+    rank: A
+  - id: openaq
+    rank: A
+  - id: firms
+    rank: A
+  - id: tepco
+    rank: A
+  - id: opensky
+    rank: A

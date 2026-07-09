@@ -1,0 +1,44 @@
+{
+  "source_id": "excel_気象庁_最近の地震活動_速報値",
+  "dataset_id": "気象庁_最近の地震活動_速報値",
+  "name": "最近の地震活動（速報値）",
+  "status": "ok",
+  "sample_http": {
+    "url": "https://www.jma.go.jp/bosai/quake/data/list.json",
+    "final_url": "https://www.jma.go.jp/bosai/quake/data/list.json",
+    "status_code": 200,
+    "content_type": "application/json",
+    "text_head": "[{\"ctt\": \"20260709102536\", \"eid\": \"20260709102249\", \"rdt\": \"2026-07-09T10:25:00+09:00\", \"ttl\": \"\\u9707\\u6e90\\u30fb\\u9707\\u5ea6\\u60c5\\u5831\", \"ift\": \"\\u767a\\u8868\", \"ser\": \"1\", \"at\": \"2026-07-09T10:22:00+09:00\", \"anm\": \"\\u30c8\\u30ab\\u30e9\\u5217\\u5cf6\\u8fd1\\u6d77\", \"acd\": \"798\", \"cod\": \"+29.9+130.0-10000/\", \"mag\": \"2.4\", \"maxi\": \"1\", \"int\": [{\"code\": \"46\", \"maxi\": \"1\", \"city\": [{\"code\": \"4630400\", \"maxi\": \"1\"}]}], \"json\": \"20260709102536_20260709102249_VXSE5k_1.json\", \"en_ttl\": \"Earthquake and Seismic Intensity Information\", \"en_anm\": \"Adjacent Sea of Tokara Islands\"}, {\"ctt\": \"20260708233641\", \"eid\": \"20260708233352\", \"rdt\": \"2026-07-08T23:36:00+09:00\", \"ttl\": \"\\u9707\\u6e90\\u30fb\\u9707\\u5ea6\\u60c5\\u5831\", \"ift\": \"\\u767a\\u8868\", \"ser\": \"1\", \"at\": \"2026-07-08T23:33:00+09:00\", \"anm\": \"\\u5ca9\\u624b\\u770c\\u6c96\", \"acd\": \"286\", \"cod\": \"+39.9+142.3-40000/\", \"mag\": \"3.5\", \"maxi\": \"1\", \"int\": [{\"code\": \"03\", \"maxi\": \"1\", \"city\": [{\"code\": \"0320200\", \"maxi\": \"1\"}]}], \"json\": \"20260708233641_20260708233352_VXSE5k_1.json\", \"en_ttl\": \"Earthquake and Seismic Intensity Information\", \"en_anm\": \"Off the Coast of Iwate Prefecture\"}, {\"ctt\": \"20260708164011\", \"eid\": \"20260708163558\", \"rdt\": \"2026-07-08T16:40:00+09:00\", \"ttl\": \"\\u9707\\u6e90\\u30fb\\u9707\\u5ea6\\u60c5\\u5831\", \"ift\": \"\\u767a\\u8868\", \"ser\": \"1\", \"at\": \"2026-07-08T16:35:00+09:00\", \"anm\": \"\\u5ca9\\u624b\\u770c\\u6c96\", \"acd\": \"286\", \"cod\": \"+40.1+142.3-40000/\", \"mag\": \"4.4\", \"maxi\": \"3\", \"int\": [{\"code\": \"02\", \"maxi\": \"3\", \"city\": [{\"code\": \"0220300\", \"maxi\": \"3\"}, {\"code\": \"0244500\", \"maxi\": \"3\"}, {\"code\": \"0244600\", \"maxi\": \"3\"}, {\"code\": \"0220700\", \"maxi\": \"2\"}, {\"code\": \"0240100\", \"maxi\": \"2\"}, {\"code\": \"0240800\", \"maxi\": \"2\"}, {\"code\": \"0241200\", \"maxi\": \"2\"}, {\"code\": \"0244100\", \"maxi\": \"2\"}, {\"code\": \"0244200\", \"maxi\": \"2\"}, {\"code\": \"0220600\", \"maxi\": \"1\"}, {\"code\": \"0240200\", \"maxi\": \"1\"}, {\"code\": \"0240500\", \"maxi\": \"1\"}, {\"code\": \"0240600\", \"maxi\": \"1\"}, {\"code\": \"0241100\", \"maxi\": \"1\"}, {\"code\": \"0244300\", \"maxi\": \"1\"}",
+    "error": null
+  },
+  "sample_row": {
+    "ctt": "20260709102536",
+    "eid": "20260709102249",
+    "rdt": "2026-07-09T10:25:00+09:00",
+    "ttl": "震源・震度情報",
+    "ift": "発表",
+    "ser": "1",
+    "at": "2026-07-09T10:22:00+09:00",
+    "anm": "トカラ列島近海",
+    "acd": "798",
+    "cod": "+29.9+130.0-10000/",
+    "mag": "2.4",
+    "maxi": "1",
+    "int": [
+      {
+        "code": "46",
+        "maxi": "1",
+        "city": [
+          {
+            "code": "4630400",
+            "maxi": "1"
+          }
+        ]
+      }
+    ],
+    "json": "20260709102536_20260709102249_VXSE5k_1.json",
+    "en_ttl": "Earthquake and Seismic Intensity Information",
+    "en_anm": "Adjacent Sea of Tokara Islands"
+  },
+  "adapter": "jma_bosai_quake_list"
+}

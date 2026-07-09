@@ -1,0 +1,21 @@
+{
+  "source_id": "gbif",
+  "status": "ok",
+  "sample_http": {
+    "url": "https://api.gbif.org/v1/occurrence/search",
+    "final_url": "https://api.gbif.org/v1/occurrence/search?country=JP&limit=0",
+    "status_code": 200,
+    "content_type": "application/json",
+    "text_head": "{\"offset\":0,\"limit\":0,\"endOfRecords\":false,\"count\":17570093,\"results\":[],\"facets\":[]}",
+    "error": null
+  },
+  "sample_keys": [
+    "offset",
+    "limit",
+    "endOfRecords",
+    "count",
+    "results",
+    "facets"
+  ],
+  "feature": "daily occurrence count by eventDate"
+}

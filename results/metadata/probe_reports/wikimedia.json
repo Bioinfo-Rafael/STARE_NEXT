@@ -1,0 +1,24 @@
+{
+  "source_id": "wikimedia",
+  "status": "ok",
+  "sample_http": {
+    "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/ja.wikipedia/all-access/all-agents/%E5%9C%B0%E9%9C%87/daily/20220101/20220107",
+    "final_url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/ja.wikipedia/all-access/all-agents/%E5%9C%B0%E9%9C%87/daily/20220101/20220107",
+    "status_code": 200,
+    "content_type": "application/json; charset=utf-8",
+    "text_head": "{\"items\":[{\"project\":\"ja.wikipedia\",\"article\":\"地震\",\"granularity\":\"daily\",\"timestamp\":\"2022010100\",\"access\":\"all-access\",\"agent\":\"all-agents\",\"views\":233},{\"project\":\"ja.wikipedia\",\"article\":\"地震\",\"granularity\":\"daily\",\"timestamp\":\"2022010200\",\"access\":\"all-access\",\"agent\":\"all-agents\",\"views\":309},{\"project\":\"ja.wikipedia\",\"article\":\"地震\",\"granularity\":\"daily\",\"timestamp\":\"2022010300\",\"access\":\"all-access\",\"agent\":\"all-agents\",\"views\":460},{\"project\":\"ja.wikipedia\",\"article\":\"地震\",\"granularity\":\"daily\",\"timestamp\":\"2022010400\",\"access\":\"all-access\",\"agent\":\"all-agents\",\"views\":564},{\"project\":\"ja.wikipedia\",\"article\":\"地震\",\"granularity\":\"daily\",\"timestamp\":\"2022010500\",\"access\":\"all-access\",\"agent\":\"all-agents\",\"views\":474},{\"project\":\"ja.wikipedia\",\"article\":\"地震\",\"granularity\":\"daily\",\"timestamp\":\"2022010600\",\"access\":\"all-access\",\"agent\":\"all-agents\",\"views\":471},{\"project\":\"ja.wikipedia\",\"article\":\"地震\",\"granularity\":\"daily\",\"timestamp\":\"2022010700\",\"access\":\"all-access\",\"agent\":\"all-agents\",\"views\":344}]}",
+    "error": null
+  },
+  "sample_keys": [
+    "project",
+    "article",
+    "granularity",
+    "timestamp",
+    "access",
+    "agent",
+    "views"
+  ],
+  "time_grain": "daily",
+  "geo_grain": "article",
+  "n_sample_rows": 7
+}
