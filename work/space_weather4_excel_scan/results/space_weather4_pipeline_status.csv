@@ -1,0 +1,8 @@
+source_id,source_group,dataset_id,probe_status,fetch_status,aggregate_status,modeled_status,coverage_start,coverage_end,coverage_days,n_fetch_rows,n_aggregate_rows,n_metric_rows,reason
+gfz_kp_kyoto_dst,kp_dst,,probe_ok,fetch_ok,aggregate_ok,features_ok,2020-01-01,2024-12-31,1827,58464,84042,0,Dst included
+nasa_cdaweb_omni2_h0_mrg1hr,omni,,probe_ok,fetch_ok,aggregate_ok,features_ok,2020-01-01,2024-12-31,1827,43848,502425,0,
+noaa_swpc_glotec,glotec,,probe_ok,insufficient_coverage,aggregate_empty,modeled_not_reached,,,0,0,0,0,Global GloTEC public coverage starts in 2025; requested period has insufficient coverage.
+intermagnet_gin,intermagnet,,probe_ok,probe_only,aggregate_not_reached,modeled_not_reached,,,0,0,0,0,Probe implemented; bulk IAGA/CDF parser deferred.
+jma_kakioka_geomag,jma_geomag,,probe_ok,probe_only,aggregate_not_reached,modeled_not_reached,,,0,0,0,0,Metadata reachable; file-selection parser deferred.
+combined_space_weather_features,combined,,probe_ok,fetch_not_applicable,aggregate_ok,features_ok,2020-01-01,2024-12-31,1827,0,5481,0,PCA-like proxy features from overlapping fetched source features.
+excel_adapter,excel,気象庁_地震月報_カタログ編,probe_ok,fetch_ok,aggregate_ok,modeled_ok,2020-01-01,2024-12-31,1827,1075089,18270,35640,

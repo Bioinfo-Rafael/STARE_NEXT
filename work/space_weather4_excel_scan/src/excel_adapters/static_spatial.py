@@ -1,0 +1,1 @@
+from src.excel_adapters.generic_url_probe import GenericUrlProbeAdapter as StaticSpatialAdapter

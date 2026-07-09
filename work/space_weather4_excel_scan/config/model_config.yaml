@@ -1,0 +1,15 @@
+lags: [-30D, -14D, -7D, -3D, -1D, 0D, 1D, 3D, 7D, 14D, 30D]
+min_samples: 365
+train_end: "2023-06-30"
+test_start: "2023-07-01"
+fdr:
+  strict_q: 0.1
+  near_miss_q: 0.2
+controls:
+  - month
+  - day_of_week
+  - weekend_or_holiday
+  - year_trend
+  - previous_target_1d
+  - previous_target_7d
+  - previous_target_30d

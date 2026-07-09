@@ -1,0 +1,15 @@
+sources:
+  kp_dst:
+    kp: https://kp.gfz.de/app/json/
+    dst: https://wdc.kugi.kyoto-u.ac.jp/dst_final/{yyyymm}/index.html
+  glotec:
+    swpc_index: https://services.swpc.noaa.gov/products/glotec/
+    product_page: https://www.spaceweather.gov/products/glotec
+    japan_bbox: [20, 46, 122, 154]
+  omni:
+    hapi: https://cdaweb.gsfc.nasa.gov/hapi
+    dataset: OMNI2_H0_MRG1HR
+  intermagnet:
+    services: https://imag-data.bgs.ac.uk/GIN_V1/GINServices
+  jma_geomag:
+    metadata: https://www.kakioka-jma.go.jp/obsdata/metadata/en/products/list/mag/kak

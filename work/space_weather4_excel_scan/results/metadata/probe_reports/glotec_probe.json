@@ -1,0 +1,25 @@
+{
+  "source": "glotec",
+  "source_group": "glotec",
+  "status": "ok",
+  "sample_http": {
+    "url": "https://services.swpc.noaa.gov/products/glotec/",
+    "final_url": "https://services.swpc.noaa.gov/products/glotec/",
+    "status_code": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "text_head": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<html>\n <head>\n  <title>Index of /products/glotec</title>\n </head>\n <body>\n<h1>Index of /products/glotec</h1>\n<pre><a href=\"?C=N;O=D\">Name</a>                    <a href=\"?C=M;O=A\">Last modified</a>      <a href=\"?C=S;O=A\">Size</a>  <hr><a href=\"/products/\">Parent Directory</a>                             -   \n<a href=\"geojson_2d_urt/\">geojson_2d_urt/</a>         2026-07-09 07:20    -   \n<a href=\"netcdf_2d_urt/\">netcdf_2d_urt/</a>          2026-07-09 07:21    -   \n<a href=\"geojson_2d_urt.json\">geojson_2d_urt.json</a>     2026-07-09 07:22  510K  \n<hr></pre>\n</body></html>\n",
+    "error": null
+  },
+  "guessed_format": "NOAA SWPC directory with NetCDF/JSON products",
+  "available_links_sample": [
+    "?C=N;O=D",
+    "?C=M;O=A",
+    "?C=S;O=A",
+    "/products/",
+    "geojson_2d_urt/",
+    "netcdf_2d_urt/",
+    "geojson_2d_urt.json"
+  ],
+  "coverage_note": "Operational global GloTEC is public from 2025-present; 2020-2024 scans are marked insufficient_coverage unless an archive endpoint is configured.",
+  "product_page": "https://www.spaceweather.gov/products/glotec"
+}

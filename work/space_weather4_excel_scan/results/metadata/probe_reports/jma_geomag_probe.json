@@ -1,0 +1,36 @@
+{
+  "source": "jma_geomag",
+  "source_group": "jma_geomag",
+  "status": "ok",
+  "sample_http": {
+    "url": "https://www.kakioka-jma.go.jp/obsdata/metadata/en/products/list/mag/kak",
+    "final_url": "https://www.kakioka-jma.go.jp/obsdata/metadata/en/products/list/mag/kak",
+    "status_code": 200,
+    "content_type": "text/html; charset=utf-8",
+    "text_head": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Metadata</title>\n  <link rel=\"stylesheet\" href=\"/obsdata/metadata/assets/application-65ec4b0a61f4618f23a07731049d41dcc039809302ba2e85adcce6dc824ecec3.css\" media=\"screen\" />\n  <script src=\"/obsdata/metadata/assets/application-8f4496cf4795502a23316489c452187e76ac4cb11a289614224126412833a0ce.js\"></script>\n  <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\" content=\"3TScgCwZstoWcVrsb2wsSbZ5b-R1u2Go2BiJQYL73zXIPEVWBw0DWTGFp9xE8ekUPvcZnd0AYpYWqB02_FNnsQ\" />\n  <style type='text/css'>\n.square {\n\twidth: 20px;\n\theight: 20px;\n\tfloat: left;\n\tcolor: #000;\n\tbackground: #fff;\n}\n#progress2 {\n\tposition: relative;\n}\n</style>\n<script type=\"text/javascript\">\n  I18n.defaultLocale = \"en\";\n  I18n.locale = \"en\";\n</script>\n</head>\n<body class='products'>\n  <div id=\"banner\">\n    <span style=\"float: right;\"><h3><a href=\"https://www.kakioka-jma.go.jp/obsdata/metadata/ja/products/list/mag/kak\">Japanese</a></h3></span>\n    Digital Data Service\n  </div>\n  <div id=\"columns\">\n    <div id=\"side\">\n      <ul>\n        <li><a href=\"/obsdata/metadata/?locale=en\">Top</a></li>\n      </ul>\n      <li> Geomagnetic data\n      <ul>\n        <li><a href=\"/obsdata/metadata/en/products/list/mag/kak\">Kakioka(KAK)</a></li>\n        <li><a href=\"/obsdata/metadata/en/products/list/mag/mmb\">Memambetsu(MMB)</a></li>\n        <li><a href=\"/obsdata/metadata/en/products/list/mag/kny\">Kanoya(KNY)</a></li>\n        <li><a href=\"/obsdata/metadata/en/products/list/mag/cbi\">Chichijima(CBI)</a></li>\n        <li><a href=\"/obsdata/metadata/en/products/list/mag/tok\">Tokyo(TOK)</a></li>\n      </ul>\n      </li>\n      <li> Geoelectric data\n      <ul>\n        <li><a href=\"/obsdata/metadata/en/products/list/ele/kak\">Kakioka(KAK)</a></li>\n        <li><a href=\"/obsdata/metadata/en/products/list/ele/mmb\">Memambetsu(MMB)</a></li>\n        <li><a href=\"/obsdata/metadata/en/products/list/ele/kny\">Kanoya(KNY)</a></li>\n      </ul>\n      </li>\n      <li> Atmospheric electric data\n  ",
+    "error": null
+  },
+  "available_links_sample": [
+    "/obsdata/metadata/assets/application-65ec4b0a61f4618f23a07731049d41dcc039809302ba2e85adcce6dc824ecec3.css",
+    "https://www.kakioka-jma.go.jp/obsdata/metadata/ja/products/list/mag/kak",
+    "/obsdata/metadata/?locale=en",
+    "/obsdata/metadata/en/products/list/mag/kak",
+    "/obsdata/metadata/en/products/list/mag/mmb",
+    "/obsdata/metadata/en/products/list/mag/kny",
+    "/obsdata/metadata/en/products/list/mag/cbi",
+    "/obsdata/metadata/en/products/list/mag/tok",
+    "/obsdata/metadata/en/products/list/ele/kak",
+    "/obsdata/metadata/en/products/list/ele/mmb",
+    "/obsdata/metadata/en/products/list/ele/kny",
+    "/obsdata/metadata/en/products/list/ae/kak",
+    "/obsdata/metadata/en/products/list/ae/mmb",
+    "/obsdata/metadata/en/products/list/mag/hrg",
+    "/obsdata/metadata/en/products/list/event/kak",
+    "/obsdata/metadata/en/products/list/event/mmb",
+    "/obsdata/metadata/en/products/list/event/kny",
+    "/en/obsdata/am_index.html",
+    "/en/index.html"
+  ],
+  "parser_status": "probe_only",
+  "reason": "Kakioka metadata is reachable; data file selection appears form/JS driven, so MVP records probe status without scraping."
+}

@@ -1,0 +1,15 @@
+source_groups:
+  - kp_dst
+  - glotec
+  - omni
+  - intermagnet
+  - jma_geomag
+  - combined
+combined_sets:
+  - [kp_dst, glotec]
+  - [kp_dst, omni]
+  - [kp_dst, jma_geomag]
+  - [glotec, omni]
+  - [glotec, jma_geomag]
+  - [omni, jma_geomag]
+  - [kp_dst, glotec, omni, jma_geomag]

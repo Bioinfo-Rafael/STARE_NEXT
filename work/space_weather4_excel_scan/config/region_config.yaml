@@ -1,0 +1,25 @@
+regions:
+  japan:
+    bbox: [20, 46, 122, 154]
+  hokkaido:
+    bbox: [41, 46, 139, 146]
+  tohoku:
+    bbox: [37, 41.5, 139, 143]
+  kanto:
+    bbox: [34.5, 37.5, 138, 141.5]
+  chubu:
+    bbox: [34.5, 38, 136, 139.5]
+  kinki:
+    bbox: [33.5, 36, 134, 137]
+  chugoku_shikoku:
+    bbox: [32.5, 36, 130, 135]
+  kyushu:
+    bbox: [30, 34, 129, 132.5]
+  nansei:
+    bbox: [24, 30, 122, 131]
+  nankai_trough:
+    bbox: [30, 35, 131, 140]
+  tohoku_offshore:
+    bbox: [36, 41.5, 141, 146]
+  japan_trench:
+    bbox: [34, 42, 141, 148]
