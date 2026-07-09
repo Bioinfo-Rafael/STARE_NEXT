@@ -2,11 +2,11 @@
   "source_id": "inaturalist",
   "status": "ok",
   "sample_http": {
-    "url": "https://api.inaturalist.org/v1/observations",
-    "final_url": "https://api.inaturalist.org/v1/observations?nelat=46&nelng=154&swlat=20&swlng=122&per_page=0",
+    "url": "https://api.inaturalist.org/v1/observations/histogram",
+    "final_url": "https://api.inaturalist.org/v1/observations/histogram?nelat=46&nelng=154&swlat=20&swlng=122&date_field=observed&interval=day&d1=2020-01-01&d2=2020-01-01",
     "status_code": 200,
     "content_type": "application/json; charset=utf-8",
-    "text_head": "{\"total_results\":2918926,\"page\":1,\"per_page\":0,\"results\":[]}",
+    "text_head": "{\"total_results\":1,\"page\":1,\"per_page\":1,\"results\":{\"day\":{\"2020-01-01\":145}}}",
     "error": null
   },
   "sample_keys": [

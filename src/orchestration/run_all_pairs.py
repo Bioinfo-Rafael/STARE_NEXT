@@ -45,6 +45,19 @@ METRIC_FIELDS = [
     "error_message",
 ]
 
+SOURCE_STATUS_FIELDS = [
+    "external_source_id",
+    "probe_status",
+    "fetch_status",
+    "aggregate_status",
+    "modeled_status",
+    "n_fetch_rows",
+    "n_aggregate_rows",
+    "n_metric_rows",
+    "n_ok_metric_rows",
+    "reason",
+]
+
 
 def _by_feature(rows: list[dict], feature_key: str) -> dict[str, list[dict]]:
     out: dict[str, list[dict]] = defaultdict(list)
@@ -80,8 +93,9 @@ def _score_pairs(external_rows: list[dict], target_rows: list[dict], lags: list[
                 sp = spearman(xs, ys)
                 p = permutation_pvalue(xs, ys, rounds=50)
                 slope = ols_slope(xs, ys)
-                auc = logistic_auc(xs, ys)
-                logcoef = logistic_coefficient(xs, ys)
+                is_binary_target = str(target_name).endswith("_flag")
+                auc = logistic_auc(xs, ys) if is_binary_target else None
+                logcoef = logistic_coefficient(xs, ys) if is_binary_target else None
                 row.update(
                     {
                         "model_type": "correlation+ols+logistic_probe",
@@ -206,28 +220,73 @@ def run_all_pairs(
     excel_adapter = ExcelDatasetAdapter(records, output_dir=output_dir, keep_raw=keep_raw)
     selected_records = records if excel_dataset_id == "all" else [r for r in records if r.dataset_id == excel_dataset_id or r.name == excel_dataset_id]
     if not selected_records:
+        selected_records = [r for r in records if "気象庁" in r.provider and ("地震月報" in r.name or "カタログ" in r.name)][:1]
+    if not selected_records:
         selected_records = [r for r in records if "気象庁" in r.provider and ("最近の地震活動" in r.name or "震源" in r.name)][:1]
     all_metrics: list[dict] = []
+    source_status_rows: list[dict] = []
+    target_cache: dict[str, list[dict]] = {}
     for external_source_id in external_source_ids:
+        status_row: dict[str, Any] = {
+            "external_source_id": external_source_id,
+            "probe_status": "",
+            "fetch_status": "",
+            "aggregate_status": "",
+            "modeled_status": "",
+            "n_fetch_rows": 0,
+            "n_aggregate_rows": 0,
+            "n_metric_rows": 0,
+            "n_ok_metric_rows": 0,
+            "reason": "",
+        }
         adapter = create_external_adapter(external_source_id, output_dir=output_dir, keep_raw=keep_raw)
-        adapter.probe()
+        probe_report = adapter.probe()
+        status_row["probe_status"] = "probe_ok" if probe_report.get("status") in {"ok", "available"} else str(probe_report.get("status") or "probe_error")
+        if status_row["probe_status"] != "probe_ok":
+            status_row["reason"] = str(probe_report.get("reason") or probe_report.get("note") or "probe did not return ok")
+            if probe_report.get("status") in {"skip", "rate_limited"}:
+                status_row["fetch_status"] = "fetch_not_reached"
+                status_row["aggregate_status"] = "aggregate_not_reached"
+                status_row["modeled_status"] = "modeled_not_reached"
+                source_status_rows.append(status_row)
+                append_jsonl(failures_path, {"external_source_id": external_source_id, "status": probe_report.get("status"), "error_message": status_row["reason"]})
+                adapter.cleanup()
+                continue
         try:
-            external_rows = adapter.aggregate(adapter.fetch(start_date, end_date, region))
+            fetched_rows = adapter.fetch(start_date, end_date, region)
+            status_row["fetch_status"] = "fetch_ok"
+            status_row["n_fetch_rows"] = len(fetched_rows)
+            external_rows = adapter.aggregate(fetched_rows)
+            status_row["aggregate_status"] = "aggregate_ok"
+            status_row["n_aggregate_rows"] = len(external_rows)
         except SkipAdapter as exc:
+            status_row["fetch_status"] = status_row["fetch_status"] or "fetch_skip"
+            status_row["aggregate_status"] = "aggregate_not_reached"
+            status_row["modeled_status"] = "modeled_not_reached"
+            status_row["reason"] = str(exc)
+            source_status_rows.append(status_row)
             append_jsonl(failures_path, {"external_source_id": external_source_id, "status": "skip", "error_message": str(exc)})
             adapter.cleanup()
             continue
         except Exception as exc:
+            status_row["fetch_status"] = status_row["fetch_status"] or "fetch_error"
+            status_row["aggregate_status"] = "aggregate_not_reached"
+            status_row["modeled_status"] = "modeled_not_reached"
+            status_row["reason"] = f"{type(exc).__name__}: {exc}"
+            source_status_rows.append(status_row)
             append_jsonl(failures_path, {"external_source_id": external_source_id, "status": "error", "error_type": type(exc).__name__, "error_message": str(exc)})
             adapter.cleanup()
             continue
+        source_metrics_before = len(all_metrics)
         for record in selected_records:
             key = ("pair_done", external_source_id, record.dataset_id)
             if key in done:
                 continue
             excel_adapter.probe_dataset(record)
             try:
-                target_rows = excel_adapter.fetch_dataset(record, start_date, end_date, region)
+                if record.dataset_id not in target_cache:
+                    target_cache[record.dataset_id] = excel_adapter.fetch_dataset(record, start_date, end_date, region)
+                target_rows = target_cache[record.dataset_id]
             except SkipAdapter as exc:
                 append_jsonl(failures_path, {"external_source_id": external_source_id, "excel_dataset_id": record.dataset_id, "status": "skip", "error_message": str(exc)})
                 continue
@@ -240,13 +299,44 @@ def run_all_pairs(
                 row["excel_dataset_id"] = record.dataset_id
             all_metrics.extend(metrics)
             log_event(output_dir, "pair_done", external_source_id=external_source_id, excel_dataset_id=record.dataset_id, n_metrics=len(metrics))
+        source_metrics = all_metrics[source_metrics_before:]
+        status_row["n_metric_rows"] = len(source_metrics)
+        status_row["n_ok_metric_rows"] = sum(1 for row in source_metrics if row.get("status") == "ok")
+        if status_row["n_ok_metric_rows"]:
+            status_row["modeled_status"] = "modeled_ok"
+            status_row["reason"] = ""
+        elif source_metrics:
+            status_row["modeled_status"] = "modeled_insufficient_data"
+            if not status_row["reason"]:
+                max_samples = max((int(row.get("n_samples") or 0) for row in source_metrics), default=0)
+                status_row["reason"] = (
+                    "features reached modeling but no temporal overlap with target period"
+                    if max_samples == 0
+                    else "features reached modeling but no metric met min_samples or variation requirements"
+                )
+        else:
+            status_row["modeled_status"] = "modeled_not_reached"
+            if not status_row["reason"]:
+                status_row["reason"] = "no target dataset fetched or no feature/target pairs were generated"
+        source_status_rows.append(status_row)
         adapter.cleanup()
     all_metrics = benjamini_hochberg(all_metrics)
     write_csv(output_dir / "per_pair_metrics.csv", all_metrics, METRIC_FIELDS)
     write_csv(output_dir / "summary.csv", all_metrics, METRIC_FIELDS)
+    write_csv(output_dir / "source_pipeline_status.csv", source_status_rows, SOURCE_STATUS_FIELDS)
     write_parquet_if_available(output_dir / "per_pair_metrics.parquet", all_metrics)
     write_parquet_if_available(output_dir / "summary.parquet", all_metrics)
     _write_top_findings(output_dir, all_metrics, failures_path)
     _write_svg_figures(output_dir, all_metrics)
-    write_json(output_dir / "metadata" / "run_summary.json", {"n_metric_rows": len(all_metrics), "external_sources": external_source_ids, "start_date": start_date, "end_date": end_date})
+    excel_adapter.cleanup()
+    write_json(
+        output_dir / "metadata" / "run_summary.json",
+        {
+            "n_metric_rows": len(all_metrics),
+            "external_sources": external_source_ids,
+            "modeled_sources": sorted({row.get("external_source_id") for row in all_metrics}),
+            "start_date": start_date,
+            "end_date": end_date,
+        },
+    )
     return all_metrics

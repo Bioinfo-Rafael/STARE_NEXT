@@ -1,16 +1,5 @@
 {
   "source_id": "openaq",
   "status": "skip",
-  "sample_http": {
-    "url": "https://api.openaq.org/v3/measurements",
-    "final_url": "https://api.openaq.org/v3/measurements?coordinates=35.681%2C139.767&radius=50000&limit=1",
-    "status_code": 401,
-    "content_type": "application/json",
-    "text_head": "{\"message\": \"Unauthorized. A valid API key must be provided in the X-API-Key header.\"}",
-    "error": null
-  },
-  "sample_keys": [
-    "message"
-  ],
-  "reason": "OpenAQ v3 may require an API key or different query parameters depending on deployment."
+  "reason": "OpenAQ v3 requires OPENAQ_API_KEY in .env or environment."
 }

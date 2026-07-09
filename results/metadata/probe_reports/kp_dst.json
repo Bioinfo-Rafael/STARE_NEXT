@@ -2,18 +2,22 @@
   "source_id": "kp_dst",
   "status": "ok",
   "sample_http": {
-    "url": "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json",
-    "final_url": "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json",
+    "url": "https://kp.gfz.de/app/json/",
+    "final_url": "https://kp.gfz.de/app/json/?start=2020-01-01T00%3A00%3A00Z&end=2020-01-03T23%3A59%3A59Z&index=Kp&status=def",
     "status_code": 200,
     "content_type": "application/json",
-    "text_head": "[{\"time_tag\":\"2026-07-02T00:00:00\",\"Kp\":2.00,\"a_running\":7,\"station_count\":7},{\"time_tag\":\"2026-07-02T03:00:00\",\"Kp\":1.33,\"a_running\":5,\"station_count\":7},{\"time_tag\":\"2026-07-02T06:00:00\",\"Kp\":1.00,\"a_running\":4,\"station_count\":7},{\"time_tag\":\"2026-07-02T09:00:00\",\"Kp\":1.00,\"a_running\":4,\"station_count\":7},{\"time_tag\":\"2026-07-02T12:00:00\",\"Kp\":1.33,\"a_running\":5,\"station_count\":7},{\"time_tag\":\"2026-07-02T15:00:00\",\"Kp\":1.00,\"a_running\":4,\"station_count\":7},{\"time_tag\":\"2026-07-02T18:00:00\",\"Kp\":0.33,\"a_running\":2,\"station_count\":7},{\"time_tag\":\"2026-07-02T21:00:00\",\"Kp\":0.67,\"a_running\":3,\"station_count\":7},{\"time_tag\":\"2026-07-03T00:00:00\",\"Kp\":1.00,\"a_running\":4,\"station_count\":7},{\"time_tag\":\"2026-07-03T03:00:00\",\"Kp\":1.00,\"a_running\":4,\"station_count\":7},{\"time_tag\":\"2026-07-03T06:00:00\",\"Kp\":1.00,\"a_running\":4,\"station_count\":7},{\"time_tag\":\"2026-07-03T09:00:00\",\"Kp\":1.33,\"a_running\":5,\"station_count\":7},{\"time_tag\":\"2026-07-03T12:00:00\",\"Kp\":2.33,\"a_running\":9,\"station_count\":7},{\"time_tag\":\"2026-07-03T15:00:00\",\"Kp\":2.67,\"a_running\":12,\"station_count\":7},{\"time_tag\":\"2026-07-03T18:00:00\",\"Kp\":3.67,\"a_running\":22,\"station_count\":7},{\"time_tag\":\"2026-07-03T21:00:00\",\"Kp\":3.67,\"a_running\":22,\"station_count\":7},{\"time_tag\":\"2026-07-04T00:00:00\",\"Kp\":6.00,\"a_running\":80,\"station_count\":7},{\"time_tag\":\"2026-07-04T03:00:00\",\"Kp\":7.33,\"a_running\":154,\"station_count\":7},{\"time_tag\":\"2026-07-04T06:00:00\",\"Kp\":5.67,\"a_running\":67,\"station_count\":7},{\"time_tag\":\"2026-07-04T09:00:00\",\"Kp\":4.67,\"a_running\":39,\"station_count\":7},{\"time_tag\":\"2026-07-04T12:00:00\",\"Kp\":6.33,\"a_running\":94,\"station_count\":7},{\"time_tag\":\"2026-07-04T15:00:00\",\"Kp\":5.67,\"a_running\":67,\"station_count\":7},{\"time_tag\":\"2026-07-04T18:00:00\",\"Kp\":5.33,\"a_running\":56,\"station_count\":7},{\"time_tag\":\"2026-07-04T21:00:00\",\"Kp\":4.67,\"a_running\":39,\"station_count\":7},{\"time_tag\":\"2026-07-05T00:00:00\",\"Kp\":3.33,\"a_running\":18,\"station_count\":7},{\"time_tag\":\"2026-07-05T03:00:00\",\"Kp\":3.00,\"a_running\":15,\"s",
+    "text_head": "{\"Kp\":[0.333,0.0,0.0,0.667,0.667,1.333,1.0,0.667,0.0,0.0,0.333,0.333,0.333,0.667,1.0,1.0,0.667,1.0,2.667,2.0,1.0,0.667,0.333,1.333],\"datetime\":[\"2020-01-01T00:00:00Z\",\"2020-01-01T03:00:00Z\",\"2020-01-01T06:00:00Z\",\"2020-01-01T09:00:00Z\",\"2020-01-01T12:00:00Z\",\"2020-01-01T15:00:00Z\",\"2020-01-01T18:00:00Z\",\"2020-01-01T21:00:00Z\",\"2020-01-02T00:00:00Z\",\"2020-01-02T03:00:00Z\",\"2020-01-02T06:00:00Z\",\"2020-01-02T09:00:00Z\",\"2020-01-02T12:00:00Z\",\"2020-01-02T15:00:00Z\",\"2020-01-02T18:00:00Z\",\"2020-01-02T21:00:00Z\",\"2020-01-03T00:00:00Z\",\"2020-01-03T03:00:00Z\",\"2020-01-03T06:00:00Z\",\"2020-01-03T09:00:00Z\",\"2020-01-03T12:00:00Z\",\"2020-01-03T15:00:00Z\",\"2020-01-03T18:00:00Z\",\"2020-01-03T21:00:00Z\"],\"meta\":{\"license\":\"CC BY 4.0\",\"source\":\"GFZ Potsdam\"},\"status\":[\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\",\"def\"]}\n",
     "error": null
   },
+  "sample_keys": [
+    "Kp",
+    "datetime",
+    "meta",
+    "status"
+  ],
   "sample_row": {
-    "time_tag": "2026-07-02T00:00:00",
-    "Kp": 2.0,
-    "a_running": 7,
-    "station_count": 7
+    "datetime": "2020-01-01T00:00:00Z",
+    "Kp": 0.333
   },
-  "note": "NOAA Kp endpoint covers recent values. Dst is not fetched unless a stable machine endpoint is added."
+  "note": "Kp uses GFZ official JSON API for historical data. Dst remains a planned Kyoto WDC extension."
 }

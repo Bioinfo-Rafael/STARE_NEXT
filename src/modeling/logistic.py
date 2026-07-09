@@ -15,7 +15,7 @@ def logistic_auc(xs: list[float], ys: list[float]) -> float | None:
     return (rank_sum - pos * (pos + 1) / 2) / (pos * neg)
 
 
-def logistic_coefficient(xs: list[float], ys: list[float], steps: int = 300, lr: float = 0.05) -> float | None:
+def logistic_coefficient(xs: list[float], ys: list[float], steps: int = 80, lr: float = 0.05) -> float | None:
     labels = [1.0 if y > 0 else 0.0 for y in ys]
     if len(set(labels)) < 2:
         return None
@@ -27,7 +27,8 @@ def logistic_coefficient(xs: list[float], ys: list[float], steps: int = 300, lr:
     for _ in range(steps):
         g0 = g1 = 0.0
         for z, y in zip(zs, labels):
-            p = 1 / (1 + math.exp(-(b0 + b1 * z)))
+            eta = max(min(b0 + b1 * z, 35), -35)
+            p = 1 / (1 + math.exp(-eta))
             g0 += p - y
             g1 += (p - y) * z
         b0 -= lr * g0 / len(zs)

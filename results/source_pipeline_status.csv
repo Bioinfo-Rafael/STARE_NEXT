@@ -1,0 +1,15 @@
+external_source_id,probe_status,fetch_status,aggregate_status,modeled_status,n_fetch_rows,n_aggregate_rows,n_metric_rows,n_ok_metric_rows,reason
+google_trends,skip,fetch_not_reached,aggregate_not_reached,modeled_not_reached,0,0,0,0,"pytrends is unavailable or blocked: ModuleNotFoundError(""No module named 'pytrends'"")"
+wikimedia,probe_ok,fetch_ok,aggregate_ok,modeled_ok,14616,16443,540,540,
+gdelt,error,fetch_skip,aggregate_not_reached,modeled_not_reached,0,0,0,0,No GDELT rows fetched; API may have timed out or returned a new schema
+glotec,skip,fetch_not_reached,aggregate_not_reached,modeled_not_reached,0,0,0,0,GloTEC products are typically NetCDF/space-weather grids; add a stable product URL and netCDF parser before automated fetch. Probe report records this as a planned adapter instead of guessing a raw endpoint.
+kp_dst,probe_ok,fetch_ok,aggregate_ok,modeled_ok,14616,3654,120,120,
+aist_well,skip,fetch_not_reached,aggregate_not_reached,modeled_not_reached,0,0,0,0,AIST groundwater/well data requires source-specific access checks; do not scrape until terms and download endpoints are confirmed.
+movebank,skip,fetch_not_reached,aggregate_not_reached,modeled_not_reached,0,0,0,0,Movebank generally requires account/API credentials or per-study permission; public-only unauthenticated endpoint was not configured.
+ebird,skip,fetch_not_reached,aggregate_not_reached,modeled_not_reached,0,0,0,0,eBird API requires EBIRD_API_KEY; Basic Dataset also requires request/approval.
+inaturalist,probe_ok,fetch_ok,aggregate_ok,modeled_ok,1827,1827,60,60,
+gbif,probe_ok,fetch_ok,aggregate_ok,modeled_ok,1827,1827,60,60,
+openaq,skip,fetch_not_reached,aggregate_not_reached,modeled_not_reached,0,0,0,0,OpenAQ v3 requires OPENAQ_API_KEY in .env or environment.
+firms,skip,fetch_not_reached,aggregate_not_reached,modeled_not_reached,0,0,0,0,NASA FIRMS area CSV API requires NASA_FIRMS_MAP_KEY.
+tepco,probe_ok,fetch_ok,aggregate_ok,modeled_ok,43848,3654,120,120,
+opensky,probe_ok,fetch_ok,aggregate_ok,modeled_insufficient_data,2,2,120,0,features reached modeling but no temporal overlap with target period

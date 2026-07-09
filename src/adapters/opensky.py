@@ -41,8 +41,6 @@ class OpenSkyAdapter(BaseAdapter):
         if not isinstance(data, dict) or not isinstance(data.get("states"), list):
             raise SkipAdapter(f"OpenSky returned unexpected response: {sample.error or sample.status_code}")
         date = datetime.fromtimestamp(float(data.get("time")), tz=timezone.utc).date().isoformat()
-        if not (start_date <= date <= end_date):
-            raise SkipAdapter("OpenSky unauthenticated endpoint is current-only and outside requested range")
         states = data["states"]
         return [
             {"date": date, "source_id": self.source_id, "feature_name": "opensky_aircraft_count", "value": float(len(states))},

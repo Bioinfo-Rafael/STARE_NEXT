@@ -23,9 +23,12 @@ class HttpSample:
         return self.__dict__.copy()
 
 
-def get(url: str, *, params: dict[str, Any] | None = None, timeout: int = 30) -> tuple[requests.Response | None, HttpSample]:
+def get(url: str, *, params: dict[str, Any] | None = None, timeout: int = 30, headers: dict[str, str] | None = None) -> tuple[requests.Response | None, HttpSample]:
     try:
-        response = requests.get(url, params=params, timeout=timeout, headers={"User-Agent": USER_AGENT})
+        merged_headers = {"User-Agent": USER_AGENT}
+        if headers:
+            merged_headers.update(headers)
+        response = requests.get(url, params=params, timeout=timeout, headers=merged_headers)
         sample = HttpSample(
             url=url,
             final_url=response.url,

@@ -1,8 +1,29 @@
 {
-  "n_metric_rows": 480,
+  "n_metric_rows": 1020,
   "external_sources": [
+    "google_trends",
+    "wikimedia",
+    "gdelt",
+    "glotec",
+    "kp_dst",
+    "aist_well",
+    "movebank",
+    "ebird",
+    "inaturalist",
+    "gbif",
+    "openaq",
+    "firms",
+    "tepco",
+    "opensky"
+  ],
+  "modeled_sources": [
+    "gbif",
+    "inaturalist",
+    "kp_dst",
+    "opensky",
+    "tepco",
     "wikimedia"
   ],
-  "start_date": "2026-07-01",
-  "end_date": "2026-07-09"
+  "start_date": "2020-01-01",
+  "end_date": "2024-12-31"
 }

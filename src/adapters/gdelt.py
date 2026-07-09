@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 import os
+import json
+import hashlib
 import time
 
 from src.adapters.base import BaseAdapter, FeatureRows, SkipAdapter
 from src.utils.http import get, json_or_none
+from src.utils.io import ensure_dir
 
 
 class GdeltAdapter(BaseAdapter):
@@ -59,23 +62,39 @@ class GdeltAdapter(BaseAdapter):
     def fetch(self, start_date: str, end_date: str, region_config: dict) -> FeatureRows:
         rows: FeatureRows = []
         url = "https://api.gdeltproject.org/api/v2/doc/doc"
-        max_queries = int(os.getenv("GDELT_MAX_QUERIES", "4"))
-        timeout = int(os.getenv("GDELT_TIMEOUT_SECONDS", "12"))
+        max_queries = int(os.getenv("GDELT_MAX_QUERIES", "1"))
+        timeout = int(os.getenv("GDELT_TIMEOUT_SECONDS", "5"))
         sleep_seconds = float(os.getenv("GDELT_SLEEP_SECONDS", "5.2"))
+        retries = int(os.getenv("GDELT_RETRIES", "0"))
+        cache_dir = ensure_dir(self.output_dir / "metadata" / "gdelt_cache")
         for i, query in enumerate(self.queries[:max_queries]):
-            if i:
-                time.sleep(sleep_seconds)
-            response, sample = get(url, params=self._params(query, start_date, end_date), timeout=timeout)
-            if response is not None and response.status_code == 429:
-                self.failure(status="rate_limited", query=query, sample_http=sample.as_dict())
-                break
-            data = json_or_none(response)
-            if response is None or response.status_code != 200 or not isinstance(data, dict):
-                self.failure(status="fetch_error", query=query, sample_http=sample.as_dict())
-                continue
+            params = self._params(query, start_date, end_date)
+            cache_key = hashlib.sha256(json.dumps(params, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()[:24]
+            cache_path = cache_dir / f"{cache_key}.json"
+            sample = None
+            if cache_path.exists():
+                data = json.loads(cache_path.read_text(encoding="utf-8"))
+            else:
+                data = None
+                for attempt in range(retries + 1):
+                    if i or attempt:
+                        time.sleep(sleep_seconds)
+                    response, sample = get(url, params=params, timeout=timeout)
+                    if response is not None and response.status_code == 429:
+                        self.failure(status="rate_limited_retry", query=query, attempt=attempt, sample_http=sample.as_dict())
+                        if attempt >= retries:
+                            raise SkipAdapter("GDELT stayed rate-limited after sleep/retry; cached responses will be reused on later runs")
+                        continue
+                    data = json_or_none(response)
+                    if response is not None and response.status_code == 200 and isinstance(data, dict):
+                        cache_path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+                        break
+                    self.failure(status="fetch_error", query=query, attempt=attempt, sample_http=sample.as_dict())
+                if not isinstance(data, dict):
+                    continue
             timeline = data.get("timeline") or data.get("timelinevol") or []
             if not isinstance(timeline, list):
-                self.failure(status="unexpected_schema", query=query, keys=list(data.keys()), sample_http=sample.as_dict())
+                self.failure(status="unexpected_schema", query=query, keys=list(data.keys()), sample_http=sample.as_dict() if sample else None)
                 continue
             for item in timeline:
                 dt = str(item.get("date") or item.get("datetime") or item.get("time") or "")

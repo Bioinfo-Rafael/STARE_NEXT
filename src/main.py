@@ -8,6 +8,7 @@ from src.adapters.excel_dataset_adapter import ExcelDatasetAdapter
 from src.orchestration.cleanup import cleanup_tmp
 from src.orchestration.run_all_pairs import run_all_pairs
 from src.registry.parse_excel_registry import parse_excel_registry
+from src.utils.env import load_dotenv
 from src.utils.io import ensure_dir
 
 
@@ -17,7 +18,7 @@ DEFAULT_LAGS = "-7D,-3D,-1D,-12H,-6H,-1H,1H,6H,12H,1D,3D,7D"
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="STARE_NEXT public data exploratory screening pipeline")
     parser.add_argument("--excel", default="資料3_地震・測地データの一覧.xlsx")
-    parser.add_argument("--start-date", default="2018-01-01")
+    parser.add_argument("--start-date", default="2020-01-01")
     parser.add_argument("--end-date", default="2024-12-31")
     parser.add_argument("--spatial-unit", default="prefecture")
     parser.add_argument("--time-freq", default="1D")
@@ -35,6 +36,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
+    load_dotenv()
     args = parse_args()
     output_dir = Path(args.output_dir)
     ensure_dir(output_dir / "metadata" / "probe_reports")
