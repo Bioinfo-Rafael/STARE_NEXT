@@ -62,7 +62,7 @@ python -m src.main \
   --end-date 2024-12-31 \
   --spatial-unit prefecture \
   --time-freq 1D \
-  --lags "-7D,-3D,-1D,-12H,-6H,-1H,1H,6H,12H,1D,3D,7D" \
+  --lags "-14D,-7D,-3D,-1D,-12H,-6H,-1H,1H,6H,12H,1D,3D,7D,14D" \
   --output-dir results \
   --cleanup-raw true
 ```
@@ -98,7 +98,9 @@ raw downloadは `cache/raw/` または `tmp/` 配下に置き、通常はAdapter
 
 各Adapterは最初に `probe()` を実行し、HTTPステータス、Content-Type、レスポンス先頭、サンプルキーなどをJSONで保存します。APIレスポンスやデータ形式が想定と違う場合、全体を止めず、そのソースまたはペアだけ `failures.jsonl` に記録して次へ進みます。
 
-`results/source_pipeline_status.csv` には各外部ソースの `probe_ok` / `fetch_ok` / `aggregate_ok` / `modeled_ok` 到達状況と、未到達理由を保存します。GDELTは1 request / 5 secを守るsleep/retry/cacheを実装していますが、probe時点でrate limitが分かる場合は全体探索を止めずskipします。
+`results/source_pipeline_status.csv` には各外部ソースの `probe_ok` / `fetch_ok` / `aggregate_ok` / `modeled_ok` 到達状況と、未到達理由を保存します。GDELTは年単位に分割し、1 request / 5 secを守るsleep/retry/cacheを実装しています。rate limitやtimeoutが続く場合は全体探索を止めずskipします。
+
+外部特徴量はraw countに加え、7日/30日移動平均との差、day-of-year平均との差、month fixed effect除去後の残差、`log1p(count)` の前年差を生成します。モデル評価ではmonth、day-of-week、weekend/holiday、year trendを残差化してから相関・回帰・AUCを計算します。日次データではsub-daily lagを無効化し、比較用の反応方向を含めて `±1D/±3D/±7D/±14D` のみを使います。
 
 ## 解釈上の注意
 

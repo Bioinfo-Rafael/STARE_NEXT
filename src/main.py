@@ -12,7 +12,7 @@ from src.utils.env import load_dotenv
 from src.utils.io import ensure_dir
 
 
-DEFAULT_LAGS = "-7D,-3D,-1D,-12H,-6H,-1H,1H,6H,12H,1D,3D,7D"
+DEFAULT_LAGS = "-14D,-7D,-3D,-1D,-12H,-6H,-1H,1H,6H,12H,1D,3D,7D,14D"
 
 
 def parse_args() -> argparse.Namespace:

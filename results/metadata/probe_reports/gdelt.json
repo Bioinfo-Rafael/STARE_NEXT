@@ -1,13 +1,13 @@
 {
   "source_id": "gdelt",
-  "status": "error",
+  "status": "rate_limited",
   "sample_http": {
     "url": "https://api.gdeltproject.org/api/v2/doc/doc",
-    "final_url": "https://api.gdeltproject.org/api/v2/doc/doc",
-    "status_code": null,
+    "final_url": "https://api.gdeltproject.org/api/v2/doc/doc?query=earthquake&mode=timelinevol&format=json&startdatetime=20220101000000&enddatetime=20220107235959",
+    "status_code": 429,
     "content_type": null,
-    "text_head": "",
-    "error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=earthquake&mode=timelinevol&format=json&startdatetime=20220101000000&enddatetime=20220107235959 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.gdeltproject.org', port=443) at 0x106257250>, 'Connection to api.gdeltproject.org timed out. (connect timeout=12)'))\"))"
+    "text_head": "Please limit requests to one every 5 seconds or contact kalev.leetaru5@gmail.com for larger queries. All high-traffic users should switch to our ngrams dataset: https://blog.gdeltproject.org/using-the-new-web-ngrams-dataset-to-find-relevant-coverage/. For trend analysis, please see our daily newsletter briefings: https://blog.gdeltproject.org/announcing-our-new-daily-todays-trends-on-capitol-hill-todays-media-trends-newsletter-briefings/.\n\n",
+    "error": null
   },
   "top_level_keys": [],
   "sample_row": null,

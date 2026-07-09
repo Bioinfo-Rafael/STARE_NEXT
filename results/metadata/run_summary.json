@@ -1,5 +1,5 @@
 {
-  "n_metric_rows": 1020,
+  "n_metric_rows": 3600,
   "external_sources": [
     "google_trends",
     "wikimedia",
@@ -20,7 +20,6 @@
     "gbif",
     "inaturalist",
     "kp_dst",
-    "opensky",
     "tepco",
     "wikimedia"
   ],

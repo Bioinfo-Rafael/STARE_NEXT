@@ -143,8 +143,12 @@ class ExcelDatasetAdapter(BaseAdapter):
         cache_dir = ensure_dir(self.raw_dir / "jma_hypocenter")
         start_year = datetime.fromisoformat(start_date).year
         end_year = datetime.fromisoformat(end_date).year
+        available_years = self._available_jma_hypocenter_years()
         rows: FeatureRows = []
         for year in range(start_year, end_year + 1):
+            if available_years and year not in available_years:
+                self.failure(status="year_unavailable", dataset_id=record.dataset_id, year=year, reason="JMA hypocenter ZIP is not linked from hypo_e.html")
+                continue
             url = f"https://www.data.jma.go.jp/eqev/data/bulletin/data/hypo/h{year}.zip"
             cache_path = cache_dir / f"h{year}.zip"
             if not cache_path.exists():
@@ -165,6 +169,12 @@ class ExcelDatasetAdapter(BaseAdapter):
                 self.failure(status="parse_error", dataset_id=record.dataset_id, year=year, error_message=str(exc))
         aggregated = self.aggregate(rows) if rows else []
         return self._fill_daily_targets(record.dataset_id, aggregated, start_date, end_date)
+
+    def _available_jma_hypocenter_years(self) -> set[int]:
+        response, _sample = get("https://www.data.jma.go.jp/eqev/data/bulletin/hypo_e.html", timeout=20)
+        if response is None or response.status_code != 200:
+            return set()
+        return {int(y) for y in re.findall(r'href="\./data/hypo/h(20\d\d)\.zip"', response.text)}
 
     def _fetch_jma_recent(self, record: DatasetRecord, start_date: str, end_date: str) -> FeatureRows:
         response, sample = get("https://www.jma.go.jp/bosai/quake/data/list.json", timeout=20)

@@ -22,6 +22,28 @@ class SummarySourceTests(unittest.TestCase):
         required = {"external_source_id", "probe_status", "fetch_status", "aggregate_status", "modeled_status", "reason"}
         self.assertLessEqual(required, set(rows[0]))
 
+    def test_summary_has_anomaly_and_no_subdaily_daily_lags(self) -> None:
+        path = Path("results/summary.csv")
+        with path.open(newline="", encoding="utf-8") as f:
+            rows = list(csv.DictReader(f))
+        adjustments = {row.get("feature_adjustment") for row in rows}
+        self.assertIn("raw_count", adjustments)
+        self.assertTrue({"ma7_anomaly", "ma30_anomaly", "doy_anomaly", "month_residual", "log1p_diff"} & adjustments)
+        lags = {row["lag"] for row in rows if row.get("status") == "ok"}
+        self.assertFalse({lag for lag in lags if lag.endswith("H")}, f"sub-daily lags leaked into daily summary: {lags}")
+
+    def test_train_test_periods_are_sorted(self) -> None:
+        path = Path("results/summary.csv")
+        with path.open(newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                if not row.get("train_period") or not row.get("test_period"):
+                    continue
+                train_start, train_end = row["train_period"].split("..")
+                test_start, test_end = row["test_period"].split("..")
+                self.assertLessEqual(train_start, train_end)
+                self.assertLessEqual(train_end, test_start)
+                self.assertLessEqual(test_start, test_end)
+
 
 if __name__ == "__main__":
     unittest.main()

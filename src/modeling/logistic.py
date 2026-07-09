@@ -6,7 +6,7 @@ from statistics import mean
 
 def logistic_auc(xs: list[float], ys: list[float]) -> float | None:
     labels = [1 if y > 0 else 0 for y in ys]
-    if len(set(labels)) < 2:
+    if len(set(labels)) < 2 or len(set(xs)) < 2:
         return None
     pairs = sorted(zip(xs, labels), key=lambda kv: kv[0])
     pos = sum(labels)

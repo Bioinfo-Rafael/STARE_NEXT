@@ -1,6 +1,6 @@
-{"event": "pair_done", "external_source_id": "wikimedia", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 540}
-{"event": "pair_done", "external_source_id": "kp_dst", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 120}
-{"event": "pair_done", "external_source_id": "inaturalist", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 60}
-{"event": "pair_done", "external_source_id": "gbif", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 60}
-{"event": "pair_done", "external_source_id": "tepco", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 120}
-{"event": "pair_done", "external_source_id": "opensky", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 120}
+{"event": "pair_done", "external_source_id": "wikimedia", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 2160}
+{"event": "pair_done", "external_source_id": "kp_dst", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 480}
+{"event": "pair_done", "external_source_id": "inaturalist", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 240}
+{"event": "pair_done", "external_source_id": "gbif", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 240}
+{"event": "pair_done", "external_source_id": "tepco", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 480}
+{"event": "pair_done", "external_source_id": "opensky", "excel_dataset_id": "気象庁_地震月報_カタログ編", "n_metrics": 0}
