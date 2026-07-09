@@ -1,0 +1,55 @@
+excel_dataset_id,excel_dataset_name,status,reason
+防災科学技術研究所_J_RISQ地震速報,J-RISQ地震速報,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_地震動マップ_速報_QuickMap,地震動マップ（速報） / QuickMap,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_日本の地震活動,日本の地震活動,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+国土交通省_津波ハザードマップ,津波ハザードマップ,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_津波堆積物データベース,津波堆積物データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_主要活断層帯,主要活断層帯,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_地域評価,地域評価,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_震源断層を特定した地震,震源断層を特定した地震,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+防災科学技術研究所_J_SHIS_地震ハザードステーション,J-SHIS 地震ハザードステーション,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+国土地理院_活断層図_都市圏活断層図,活断層図（都市圏活断層図）,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_活断層データベース,活断層データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_重点的調査観測_H17,重点的調査観測（H17-）,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_活断層の追加_補完調査_H17,活断層の追加・補完調査（H17-）,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_沿岸海域における活断層調査_H21,沿岸海域における活断層調査（H21-）,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_地域評価のための活断層調査_H25,地域評価のための活断層調査（H25-）,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_交付金による活断層調査_H7_16,交付金による活断層調査（H7-16）,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+海上保安庁_海域活断層域を含む沿岸調査及びその成果,海域活断層域を含む沿岸調査及びその成果,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_海域における断層情報総合評価プロジェクト_H25,海域における断層情報総合評価プロジェクト （H25-）,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_地震本部での評価に用いた地下構造モデル,地震本部での評価に用いた地下構造モデル,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+防災科学技術研究所_地形_地盤分類250mメッシュマップ_2020年更新版,地形・地盤分類250mメッシュマップ (2020年更新版),static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+防災科学技術研究所_日本列島下の三次元地震波速度構造,日本列島下の三次元地震波速度構造,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_地下構造可視化システム,地下構造可視化システム,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_海域地質構造データベース,海域地質構造データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+海上保安庁_プレート境界域の精密海底地形図,プレート境界域の精密海底地形図,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+海洋研究開発機構_地殻構造探査データベースサイト,地殻構造探査データベースサイト,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+海洋研究開発機構_JAMSTEC航海_潜航データ_サンプル探索システム,JAMSTEC航海・潜航データ・サンプル探索システム,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_交付金による地下構造調査_H7_16,交付金による地下構造調査（H7-16）,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_海域地下構造統合データベース,海域地下構造統合データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+土木研究所_国土地盤情報検索サイト,国土地盤情報検索サイト,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+防災科学技術研究所_統合化地下構造データベース_ジオ_ステーション,統合化地下構造データベース ジオ・ステーション,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_地質情報データべース,地質情報データべース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_20万分の_日本シームレス地質図データベース,20万分の１日本シームレス地質図データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_地質図navi,地質図navi,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_地質図カタログ,地質図カタログ,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_高分解能音波探査断面データベース,高分解能音波探査断面データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_関東平野の地下地質_地盤データベース,関東平野の地下地質・地盤データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_地殻応力場データベース,地殻応力場データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_統合版地質文献データベース,統合版地質文献データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_地質図類データダウンロード,地質図類データダウンロード,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_地層名検索データベース,地層名検索データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_地質情報配信サービス,地質情報配信サービス,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_重力データベース,重力データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+海上保安庁_地磁気_重力,地磁気・重力,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+国土地理院_地図_空中写真閲覧サービス,地図・空中写真閲覧サービス,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+国土地理院_基盤地図情報,基盤地図情報,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+国土地理院_数値地図_国土基本情報,数値地図「国土基本情報」,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+国土地理院_電子国土基本図_オルソ画像,電子国土基本図（オルソ画像）,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+国土地理院_全国の標高データ,全国の標高データ,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+防災科学技術研究所_地すべり地形分布図デジタルアーカイブ,地すべり地形分布図デジタルアーカイブ,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+地震調査研究推進本部_地震動予測地図,地震動予測地図,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+防災科学技術研究所_J_SHIS_地震ハザードステーション,J-SHIS 地震ハザードステーション,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+国土交通省_重ねるハザードマップ,重ねるハザードマップ,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+国土交通省_わがまちハザードマップ,わがまちハザードマップ,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.
+産業技術総合研究所_共著関連データベース,共著関連データベース,static_only,Static spatial layer can be used for regional stratification/interactions after a region feature extractor is implemented.

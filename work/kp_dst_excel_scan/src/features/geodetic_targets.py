@@ -1,0 +1,1 @@
+TIME_SERIES_TARGETS = ["value_mean", "value_max", "value_min", "daily_diff", "rolling_mean_7d", "rolling_anomaly_7d", "rolling_anomaly_30d", "doy_anomaly", "month_residual", "station_count_valid", "anomaly_flag"]

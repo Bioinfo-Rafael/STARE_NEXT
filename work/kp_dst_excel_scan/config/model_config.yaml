@@ -1,0 +1,19 @@
+lags:
+  - -30D
+  - -14D
+  - -7D
+  - -3D
+  - -1D
+  - 0D
+  - 1D
+  - 3D
+  - 7D
+  - 14D
+  - 30D
+min_samples: 365
+train_end: "2023-06-30"
+test_start: "2023-07-01"
+candidate_thresholds:
+  fdr_q_value: 0.1
+  min_abs_correlation: 0.0
+  min_auc_strength: 0.55

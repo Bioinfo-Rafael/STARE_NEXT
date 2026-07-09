@@ -1,0 +1,27 @@
+priority_keywords:
+  event_catalog:
+    - 地震月報
+    - 震源
+    - 震度
+    - Hi-net
+    - F-net
+  time_series:
+    - GNSS
+    - GEONET
+    - 潮位
+    - NOWPHAS
+    - 地下水
+    - 歪
+    - 水温
+    - 地磁気
+  waveform:
+    - 波形
+    - K-NET
+    - KiK-net
+    - DONET
+  static_spatial:
+    - 活断層
+    - 地質
+    - 地下構造
+    - J-SHIS
+    - ハザード

@@ -1,0 +1,12 @@
+kp:
+  provider: GFZ Potsdam
+  endpoint: https://kp.gfz.de/app/json/
+  cadence: 3H
+dst:
+  provider: Kyoto WDC
+  monthly_final_url_template: https://wdc.kugi.kyoto-u.ac.jp/dst_final/{yyyymm}/index.html
+  cadence: 1H
+features:
+  include_kp: true
+  include_dst: true
+  include_combined: true
